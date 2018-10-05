@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.juinsight.scrapper.Mapper.RssParsingMapper">
+
+    <select id="selectCrawlNewsTargetUrlList" parameterType="CrawlNewsSmryVO" resultType="map">
+      SELECT A.URL_ID
+            ,A.COMPANY_ID
+            ,B.COMPANY_NAME
+            ,A.URL
+            ,A.CRAWL_STATUS_GBN
+        FROM CRAWL_TARGET_URL A
+            ,CRAWL_TARGET B
+       WHERE A.COMPANY_ID = B.COMPANY_ID
+    </select>
+
+    <insert id="insertCrawlNewsSmryList" parameterType="CrawlNewsSmryVO" >
+        INSERT IGNORE INTO CRAWL_NEWS_SMRY
+        (
+          COMPNAY_ID
+          ,URL_LINK
+          ,TITLE
+          ,PUB_DATE
+          ,INPT_ID
+          ,INPT_DTTM
+          ,MOD_ID
+          ,MOD_DTTM
+        ) VALUES
+        (
+          '10'
+          ,#{link}
+          ,#{title}
+          ,#{pubDate}
+          ,#{inptId}
+          ,CURRENT_TIMESTAMP()
+          ,#{modId}
+          ,CURRENT_TIMESTAMP()
+        )
+    </insert>
+</mapper>
