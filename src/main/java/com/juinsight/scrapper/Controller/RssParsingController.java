@@ -23,7 +23,7 @@ public class RssParsingController {
         String CHANNEL = body.get("channel");
         String RSS_URL = body.get("site");
         try {
-            rssParsingService.parseDOMObject(CHANNEL, RSS_URL);
+            rssParsingService.parseDOMObjectJsoup(CHANNEL, RSS_URL);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +35,7 @@ public class RssParsingController {
     public String init(HttpServletRequest request, HttpServletResponse response,
                        @RequestBody(required = false) Map<String,String> body){
         CrawlNewsSmryVO crawlNewsSmryVO = new CrawlNewsSmryVO();
-        crawlNewsSmryVO.setChannel(body.get("channel"));
+        //crawlNewsSmryVO.setChannel(body.get("channel"));
         rssParsingService.selectCrawlNewsTargetUrlList(crawlNewsSmryVO);
         return "success";
     }

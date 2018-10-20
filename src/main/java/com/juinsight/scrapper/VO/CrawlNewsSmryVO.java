@@ -6,10 +6,9 @@ import java.util.Date;
 
 public class CrawlNewsSmryVO extends AbstractVO {
 
-    private String channel;
+    private String companyId;
     private String link;
     private String title;
-
     private Date pubDate;
 
     public String getLink() {
@@ -28,12 +27,12 @@ public class CrawlNewsSmryVO extends AbstractVO {
         this.title = title;
     }
 
-    public String getChannel() {
-        return channel;
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setChannel(String channel) {
-        this.channel = channel;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     public Date getPubDate() {

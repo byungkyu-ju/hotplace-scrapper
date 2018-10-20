@@ -20,7 +20,7 @@
         INSERT IGNORE INTO CRAWL_NEWS_SMRY
         (
           COMPNAY_ID
-          ,URL_LINK
+          ,LINK
           ,TITLE
           ,PUB_DATE
           ,INPT_ID
